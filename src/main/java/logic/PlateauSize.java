@@ -1,17 +1,17 @@
-package marsrover;
+package logic;
 // singleton design pattern
 public class PlateauSize {
 
 
-    private int height;
-    private int width;
+    private static int height;
+    private static int width;
     private static PlateauSize instance;
 
     private PlateauSize(int width, int height) {
         if(height<=0||width<=0)  throw new IllegalArgumentException("Height and Width must be positive");
 
-        this.height = height;
-        this.width = width;
+        PlateauSize.height = height;
+        PlateauSize.width = width;
     }
     public static PlateauSize getInstance( int width, int height){
         if (instance==null){
@@ -19,11 +19,11 @@ public class PlateauSize {
         }
         return instance;
     }
-    public int getHeight() {
+    public static int getHeight() {
         return height;
     }
 
-    public int getWidth() {
+    public static int getWidth() {
         return width;
     }
 

@@ -1,4 +1,4 @@
-package marsrover;
+package logic;
 
 public class Position {
 

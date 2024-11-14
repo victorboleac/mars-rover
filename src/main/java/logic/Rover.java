@@ -1,4 +1,5 @@
 package logic;
 
-public class Rover {
+public class Rover extends Robot{
+
 }

@@ -2,7 +2,7 @@ package logic;
 
 public enum CompassDirection {
     N,S,E,W;
-
+// add exceptions
     public CompassDirection turnRight(){
         return switch (this) {
             case N -> E;

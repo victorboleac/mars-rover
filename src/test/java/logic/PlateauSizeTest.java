@@ -14,11 +14,10 @@ class PlateauSizeTest {
 
         // ACT
         PlateauSize plateau = PlateauSize.getInstance(width, height);
-
         // ASSERT
         assertNotNull(plateau);
-        assertEquals(width, plateau.getWidth());
-        assertEquals(height, plateau.getHeight());
+        assertEquals(width, PlateauSize.getWidth());
+        assertEquals(height, PlateauSize.getHeight());
     }
     @Test
     public void test_SingletonSameInstance() {
@@ -34,8 +33,8 @@ class PlateauSizeTest {
 
         // ASSERT
         assertSame(plateau1, plateau2);
-        assertEquals(width1, plateau2.getWidth());
-        assertEquals(height1, plateau2.getHeight());
+        assertEquals(width1, PlateauSize.getWidth());
+        assertEquals(height1, PlateauSize.getHeight());
     }
     @Test
     public void test_NegativeWidthOrHeight() {
@@ -83,7 +82,7 @@ class PlateauSizeTest {
         PlateauSize plateau = PlateauSize.getInstance(width, height);
 
         // ASSERT
-        assertEquals(width, plateau.getWidth());
-        assertEquals(height, plateau.getHeight());
+        assertEquals(width, PlateauSize.getWidth());
+        assertEquals(height, PlateauSize.getHeight());
     }
 }

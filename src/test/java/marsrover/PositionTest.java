@@ -21,6 +21,24 @@ class PositionTest {
         );
 
     }
+    @Test
+    @DisplayName("Testing setters")
+    void test_positionSetters(){
+        //Arrange
+        CompassDirection direction = CompassDirection.N;
+        Position position = new Position(0,0, direction);
+        //Act
+        position.setX(5);
+        position.setY(10);
+        position.setFacing(CompassDirection.W);
+        //Assert
+        assertAll(
+                () -> assertEquals(5, position.getX()),
+                () -> assertEquals(10, position.getY()),
+                () -> assertEquals(CompassDirection.W, position.getFacing())
+        );
+
+    }
 
 
 }

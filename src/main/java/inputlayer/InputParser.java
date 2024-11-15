@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputParser {
+
     public PlateauSize parsePlateauSize(String input){
         String[] coordinates = input.trim().split(" ");
         // checking if it has only 2 parts as we need only a coordinates

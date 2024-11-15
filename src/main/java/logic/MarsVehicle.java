@@ -12,9 +12,9 @@ public abstract class MarsVehicle {
     }
 
     public void executeInstructions(List<Instruction> instructions){
-        instructions.forEach(this::move);
+        instructions.forEach(this::executeInstruction);
     }
-    public void move(Instruction instruction){
+    public void executeInstruction(Instruction instruction){
         switch (instruction){
             case L -> turnLeft();
             case M -> performAction();

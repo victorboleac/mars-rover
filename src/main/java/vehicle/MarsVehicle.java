@@ -11,6 +11,7 @@ public abstract class MarsVehicle {
     private Position position;
 
     public MarsVehicle(Position initialPosition) {
+        System.out.println("\033[38;5;226m"+this.getClass().getSimpleName()+" successfully created \033[0m");
         this.position = initialPosition;
 
     }

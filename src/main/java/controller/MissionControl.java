@@ -18,4 +18,23 @@ public class MissionControl {
             System.out.println(e.getMessage());
         }
     }
+    public void printName(){
+        System.out.println("\033[1;36m========================\033[0m");
+        System.out.println("\033[1;33m   M A R S   R O V E R\033[0m");
+        System.out.println("\033[1;36m========================\033[0m");
+    }
+    public void printMarsRover(){
+        System.out.println("\033[1;33m         ______\033[0m");
+        System.out.println("\033[1;33m       _/      \\_\033[0m");
+        System.out.println("\033[1;33m      / |      | \\\033[0m");
+        System.out.println("\033[1;33m     /  |______|  \\\033[0m");
+        System.out.println("\033[1;33m  __|______________|__\033[0m");
+        System.out.println("\033[1;33m |                  o o|\033[0m");
+        System.out.println("\033[1;33m |_____________________|\033[0m");
+        System.out.println("\033[1;33m   |  \\__________/  |\033[0m");
+        System.out.println("\033[1;33m   |                |\033[0m");
+        System.out.println("\033[1;33m  [==]            [==]\033[0m");
+        System.out.println("\033[1;33m   o                o\033[0m");
+        System.out.println("\n\n");
+    }
 }

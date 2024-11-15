@@ -29,6 +29,8 @@ public class Rover extends MarsVehicle{
 
 
 
+
+
     public static void main(String[] args) {
         PlateauSize.getInstance(5,5);
         Position position = new Position(2, 2, CompassDirection.N);

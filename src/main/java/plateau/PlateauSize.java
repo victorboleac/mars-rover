@@ -17,6 +17,7 @@ public class PlateauSize {
         if (instance==null){
             instance = new PlateauSize(x,y);
         }
+        System.out.println("\033[38;5;226mPlateau with size "+x+" X "+y + " created\033[0m");
         return instance;
     }
 

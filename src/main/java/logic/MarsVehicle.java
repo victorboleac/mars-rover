@@ -3,10 +3,12 @@ package logic;
 import java.util.List;
 
 public abstract class MarsVehicle {
-    private Position position;
 
+    private final Position position;
+    private int moveForwardSpeed;
     public MarsVehicle(Position initialPosition){
         this.position = initialPosition;
+
     }
 
     public void executeInstructions(List<Instruction> instructions){
@@ -58,5 +60,21 @@ public abstract class MarsVehicle {
         position.setX(x);
         position.setY(y);
     }
+    public Position getPosition() {
+        return position;
+    }
+    public void moveForward(int speed){
+        int x = getPosition().getX();
+        int y = getPosition().getY();
 
+        switch (getPosition().getFacing()){
+            case N -> y+=speed;
+            case E -> x+=speed;
+            case S -> x-=speed;
+            case W -> y-=speed;
+        }
+        validatePosition(x,y);
+        getPosition().setX(x);
+        getPosition().setY(y);
+    }
 }

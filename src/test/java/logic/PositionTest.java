@@ -1,5 +1,7 @@
 package logic;
 
+import model.CompassDirection;
+import model.Position;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

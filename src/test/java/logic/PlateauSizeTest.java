@@ -2,6 +2,7 @@ package logic;
 
 
 import org.junit.jupiter.api.Test;
+import plateau.PlateauSize;
 
 import static org.junit.jupiter.api.Assertions.*;
 

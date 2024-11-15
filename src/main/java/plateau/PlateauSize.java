@@ -1,4 +1,4 @@
-package logic;
+package plateau;
 // singleton design pattern
 public class PlateauSize {
 

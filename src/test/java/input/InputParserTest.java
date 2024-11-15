@@ -1,9 +1,9 @@
-package inputlayer;
+package input;
 
-import logic.CompassDirection;
-import logic.Instruction;
-import logic.PlateauSize;
-import logic.Position;
+import model.CompassDirection;
+import model.Instruction;
+import plateau.PlateauSize;
+import model.Position;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

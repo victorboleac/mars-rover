@@ -1,4 +1,4 @@
-package logic;
+package model;
 
 public enum CompassDirection {
     N,S,E,W;

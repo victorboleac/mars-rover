@@ -1,6 +1,12 @@
-package logic;
+package controller;
 
-import java.util.ArrayList;
+/* TODO: to make it work with a list of MarsVehicles, to implement the logic to avoid collisions
+    HashMap should be taken into consideration
+    Logic to avoid collisions: a simple  "rock scissors paper" game between objects.
+*/
+import model.Instruction;
+import vehicle.MarsVehicle;
+
 import java.util.List;
 
 public class MissionControl {

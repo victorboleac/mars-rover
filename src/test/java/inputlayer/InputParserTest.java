@@ -91,7 +91,7 @@ class InputParserTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
                 parser.parseInstructions(input)
         );
-        assertEquals("Invalid instruction: X", exception.getMessage());
+        assertEquals("Invalid Instruction: X", exception.getMessage());
     }
     @Test
     public void test_ParseInstructionsWithEmptyInput() {

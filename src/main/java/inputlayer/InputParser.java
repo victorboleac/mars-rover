@@ -27,7 +27,7 @@ public class InputParser {
         int x = Integer.parseInt(position[0]);
         int y = Integer.parseInt(position[1]);
 
-        if(x>PlateauSize.getWidth() || y>PlateauSize.getHeight()) throw new IllegalArgumentException("The position " +
+        if(!PlateauSize.isInsideTheGrid(x,y)) throw new IllegalArgumentException("The position " +
                 x + ";" + y + " is out of plateau size" );
 
         CompassDirection facing = CompassDirection.valueOf(position[2].toUpperCase());
@@ -36,12 +36,8 @@ public class InputParser {
     }
     public List<Instruction> parseInstructions(String input){
         List<Instruction> instructions = new ArrayList<>();
-        for (char c: input.trim().toCharArray()){
-            try{
-                instructions.add(Instruction.valueOf(String.valueOf(c).toUpperCase()));
-            }catch (IllegalArgumentException e){
-                throw new IllegalArgumentException("Invalid instruction: "+ c);
-            }
+        for (char c: input.trim().toCharArray()) {
+            instructions.add(Instruction.fromChar(c));
         }
         return instructions;
     }

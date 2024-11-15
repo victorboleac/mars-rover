@@ -20,7 +20,7 @@ public class PlateauSize {
         return instance;
     }
 
-    public boolean isInsideTheGrid(int x, int y){
+    public static boolean isInsideTheGrid(int x, int y){
         return x >= 0 && x <= PlateauSize.x && y >= 0 && y <= PlateauSize.y;
     }
     public static int getHeight() {

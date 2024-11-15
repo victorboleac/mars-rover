@@ -23,13 +23,24 @@ public class Main {
 
         Rover rover = new Rover(initialPosition);
 
-        System.out.print("Please enter the instructions (ex: LRMMMLR): ");
-        List<Instruction> instructions = inputParser.parseInstructions(scanner.nextLine());
-        missionOne.executeMission(rover, instructions);
-        Position finalPosition = rover.getPosition();
-        System.out.println("\033[38;5;226m" + "Final Position is: " + finalPosition.getX() + " " +
-                finalPosition.getY() + " " + finalPosition.getFacing().toString()+ "\033[0m");
+        while (true) {
+            System.out.print("Please enter the instructions (ex: LRMMMLR): ");
+            List<Instruction> instructions = inputParser.parseInstructions(scanner.nextLine());
+            missionOne.executeMission(rover, instructions);
 
+            Position finalPosition = rover.getPosition();
+            System.out.println("\033[38;5;226m" + "Final Position is: " + finalPosition.getX() + " " +
+                    finalPosition.getY() + " " + finalPosition.getFacing().toString() + "\033[0m");
 
+            System.out.print("Do you want to give more instructions? (yes/no): ");
+            String response = scanner.nextLine().trim().toLowerCase();
+
+            if (!response.equals("yes")) {
+                System.out.println("\033[38;5;46mMission complete. Rover has stopped.\033[0m");
+                break;
+            }
+        }
+
+        scanner.close();
     }
 }

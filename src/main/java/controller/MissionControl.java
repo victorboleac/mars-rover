@@ -35,6 +35,6 @@ public class MissionControl {
         System.out.println("\033[1;33m   |                |\033[0m");
         System.out.println("\033[1;33m  [==]            [==]\033[0m");
         System.out.println("\033[1;33m   o                o\033[0m");
-        System.out.println("\n\n");
+        System.out.println();
     }
 }

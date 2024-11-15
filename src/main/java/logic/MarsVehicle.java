@@ -5,32 +5,34 @@ import java.util.List;
 public abstract class MarsVehicle {
 
     private final Position position;
-    private int moveForwardSpeed;
-    public MarsVehicle(Position initialPosition){
+
+    public MarsVehicle(Position initialPosition) {
         this.position = initialPosition;
 
     }
 
-    public void executeInstructions(List<Instruction> instructions){
+    public void executeInstructions(List<Instruction> instructions) {
         instructions.forEach(this::executeInstruction);
     }
-    public void executeInstruction(Instruction instruction){
-        switch (instruction){
+
+    public void executeInstruction(Instruction instruction) {
+        switch (instruction) {
             case L -> turnLeft();
-            case M -> performAction();
+            case M -> moveForward();
             case R -> turnRight();
-            default -> throw new IllegalArgumentException(this.getClass().getSimpleName()+" doesn't recognise this " +
-            "instruction");
         }
     }
 
-    public abstract void performAction();
-    public void turnLeft(){
+    public abstract void moveForward();
+
+    public void turnLeft() {
         position.setFacing(position.getFacing().turnLeft());
     }
-    public void turnRight(){
+
+    public void turnRight() {
         position.setFacing((position.getFacing().turnRight()));
     }
+
     /* Logic for the vehicle when it is going out of borders
     1st  case - when the destination coordinates are inside the grid and just the way to the destination can go
     out of grid - it has just to reach the destination finding the shortest way
@@ -40,26 +42,29 @@ public abstract class MarsVehicle {
 
        FOR NOW WILL MAKE ALL THE CASES TO TURN RIGHT WHEN THE NEXT MOVEMENT IS OUT OF GRID
      */
-    public void validatePosition(int x, int y){
-        if(x >= 0 && x <= PlateauSize.getWidth() && y >= 0 && y <= PlateauSize.getHeight()) {
+    public void validatePosition(int x, int y) {
+        if (PlateauSize.isInsideTheGrid(x, y)) {
             position.setX(x);
             position.setY(y);
+        } else {
+            adjustToGrid();
         }
+    }
 
-        if(x < 0 || x > PlateauSize.getWidth() || y < 0 || y > PlateauSize.getHeight()){
-            while (x < 0 || x > PlateauSize.getWidth() || y < 0 || y > PlateauSize.getHeight()){
-                switch (position.getFacing()){
-                    case N -> y = PlateauSize.getHeight();
-                    case E -> x = PlateauSize.getWidth();
-                    case S -> y = 0;
-                    case W -> x = 0;
+    private void adjustToGrid() {
+
+        while (!PlateauSize.isInsideTheGrid(position.getX(), position.getY())) {
+                switch (position.getFacing()) {
+                    case N -> position.setY(PlateauSize.getHeight());
+                    case E -> position.setX(PlateauSize.getWidth());
+                    case S -> position.setY(0);
+                    case W -> position.setX(0);
                 }
                 turnRight();
             }
         }
-        position.setX(x);
-        position.setY(y);
-    }
+
+
     public Position getPosition() {
         return position;
     }
